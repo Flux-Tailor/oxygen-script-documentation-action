@@ -3,13 +3,15 @@ description: Generate XML Schema (XSD), XSLT, WSDL, JSON Schema and OpenAPI docu
 branding:
   icon: 'book-open'
   color: 'blue'
-inputs:
-  docsVersion:
-    description: 'Version of documentation to create/overwrite'
-    required: true
-secrets:
-    GIT_RATE_SCHEMA_DOCUMENTATION_TOKEN:
-      required: true
+on:
+  workflow_call:
+    inputs:
+      docsVersion:
+        description: 'Version of documentation to create/overwrite'
+        required: true
+    secrets:
+        GIT_RATE_SCHEMA_DOCUMENTATION_TOKEN:
+          required: true
 
 permissions:
   contents: write
