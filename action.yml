@@ -7,6 +7,9 @@ inputs:
   docsVersion:
     description: 'Version of documentation to create/overwrite'
     required: true
+permissions:
+  contents: write
+  pull-requests: write
 
 runs:
   using: "composite"
@@ -37,7 +40,7 @@ runs:
       run: |
         cd scripting/build 
         ./gradlew generateDoc -PschemaFile=all_rate_plan_schemas.xsd -PinnerBuild=false --info --stacktrace --build-cache
-        cp -r scripting/doc/* ${{ GITHUB_WORKSPACE }}/rate-plan-documentation/doc/OxygenDocs/rate-plan-schema-docs/${{ inputs.docsVersion }}
+        cp -r scripting/doc/* ${{ github.workspace }}/rate-plan-documentation/doc/OxygenDocs/rate-plan-schema-docs/${{ inputs.docsVersion }}
       shell: bash
 
    - name: Create Pull Request
