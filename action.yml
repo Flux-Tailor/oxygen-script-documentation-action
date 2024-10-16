@@ -21,14 +21,17 @@ runs:
       uses: actions/checkout@v3.3.0
       with:
         repository: Flux-Tailor/oxygen-script-documentation
+        token: ${{ secrets.GIT_RATE_SCHEMA_DOCUMENTATION_TOKEN }}
         ref: main
         path: scripting
+
 
     - name: Checkout rate-plan-documentation repo.
       uses: actions/checkout@v3.3.0
       with:
         repository: Flux-Tailor/rate-plan-documentation
         ref: main
+
         path: rate-plan-documentation
 
     - name: Setup Gradle
@@ -48,6 +51,7 @@ runs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
+        token: ${{ secrets.GIT_RATE_SCHEMA_DOCUMENTATION_TOKEN }}
         path: rate-plan-documentation
         commit-message: "[Flux Bot] New version of schema documentation"
 
