@@ -43,9 +43,9 @@ runs:
         cp -r scripting/doc/* ${{ github.workspace }}/rate-plan-documentation/doc/OxygenDocs/rate-plan-schema-docs/${{ inputs.docsVersion }}
       shell: bash
 
-   - name: Create Pull Request
-     uses: peter-evans/create-pull-request@v7
-     with:
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v7
+      with:
         path: rate-plan-documentation
         commit-message: "[Flux Bot] New version of schema documentation"
 
