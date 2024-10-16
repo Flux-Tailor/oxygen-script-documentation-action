@@ -21,14 +21,13 @@ runs:
       uses: actions/checkout@v3.3.0
       with:
         repository: Flux-Tailor/oxygen-script-documentation
-        token: ${{ secrets.GIT_RATE_SCHEMA_DOCUMENTATION_TOKEN }}
         ref: main
         path: scripting
-
 
     - name: Checkout rate-plan-documentation repo.
       uses: actions/checkout@v3.3.0
       with:
+        token: ${{ secrets.GIT_RATE_SCHEMA_DOCUMENTATION_TOKEN }}
         repository: Flux-Tailor/rate-plan-documentation
         ref: main
 
